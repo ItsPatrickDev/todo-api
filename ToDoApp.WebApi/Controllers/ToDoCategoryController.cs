@@ -65,7 +65,6 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpGet("shortname/{shortname}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [SwaggerOperation(Summary = "Get categories by shortname or letters")]
         public async Task<IActionResult> GetByShortName(string shortName)
         {
@@ -75,7 +74,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Create category")]
         public async Task<IActionResult> Create(ToDoCategory category)
         {
@@ -97,8 +96,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Update category")]
         public async Task<IActionResult> Update(ToDoCategory category)
         {
@@ -119,7 +117,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Delete category")]
         public async Task<IActionResult> Delete(Guid id)
         {

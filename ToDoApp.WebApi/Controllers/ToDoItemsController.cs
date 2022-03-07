@@ -82,7 +82,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Create new TODO")]
         public async Task<IActionResult> Create(ToDoItem model)
         {
@@ -110,8 +110,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Update TODO")]
         public async Task<IActionResult> Update(ToDoItem model)
         {
@@ -132,7 +131,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Delete todo (DONE)")]
         public async Task<IActionResult> Delete(Guid id)
         {

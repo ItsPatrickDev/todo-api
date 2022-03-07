@@ -42,6 +42,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Create subTask for TODO")]
         public async Task<IActionResult> Create(CreateSubTaskModel model)
         {
@@ -63,6 +64,7 @@ namespace ToDoApp.WebApi.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [SwaggerOperation(Summary = "Set subTask DONE")]
         public async Task<IActionResult> SetDone(Guid id)
         {
